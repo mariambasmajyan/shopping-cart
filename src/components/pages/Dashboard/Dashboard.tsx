@@ -1,7 +1,7 @@
 import { useShops } from '../../../hooks/useShop';
 import './Dashboard.scss';
 import { sortOrder } from './utils';
-import { AddItem } from './AddItemForm/AddItem';
+import { AddItem } from './AddItem/AddItem';
 
 export const Dashboard = () => {
   const { shops, deleteItem, addItem } = useShops();

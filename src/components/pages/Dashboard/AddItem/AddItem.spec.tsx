@@ -1,20 +1,16 @@
 import React from 'react';
 import { render, fireEvent, screen, act } from '@testing-library/react';
-import { useShops } from '../../../../hooks/useShop';
 import { AddItem } from './AddItem';
-
-jest.mock('../../../../hooks/useShop');
 
 describe('AddItem', () => {
   const mockAddItem = jest.fn();
 
   beforeEach(() => {
     mockAddItem.mockClear();
-    (useShops as jest.Mock).mockReturnValue({ addItem: mockAddItem });
   });
 
-  it('renders AddItemForm correctly', () => {
-    render(<AddItem />);
+  it('renders AddItem correctly', () => {
+    render(<AddItem onAddItem={mockAddItem} />);
 
     const nameInput = screen.getByLabelText('Name');
     expect(nameInput).toBeInTheDocument();
@@ -29,8 +25,8 @@ describe('AddItem', () => {
     expect(submitButton).toBeEnabled();
   });
 
-  it('submits correct data to addItem when form is submitted', async () => {
-    render(<AddItem />);
+  it('submits correct data to onAddItem when form is submitted', async () => {
+    render(<AddItem onAddItem={mockAddItem} />);
 
     await act(async () => {
       fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'Test Shop' } });
