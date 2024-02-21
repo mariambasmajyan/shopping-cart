@@ -1,0 +1,58 @@
+@import '../../../styles/variables';
+
+.card {
+  max-width: 780px;
+  min-height: 300px;
+  margin: 40px 40px;
+  border-radius: 10px;
+  position: relative;
+  border: 2px solid #ECEDEE;
+  background-color: #fff;
+  box-shadow: 0 4px 20px 0 #ECEDEE;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.title {
+  font-size: 24px;
+}
+
+.items-list {
+  list-style: none;
+  padding: 0;
+  width: calc(100% + 80px);
+  margin-left: -40px;
+  margin-top: 15px;
+
+  .item {
+    display: flex;
+    align-items: center;
+    padding: 5px 65px;
+    box-sizing: border-box;
+    width: 100%; gap: 30px;
+
+    &:nth-child(odd) {
+      background-color: #FBFBFB;
+    }
+
+    span{
+      width: 235px;
+      overflow: scroll;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+    .delete-button {
+      font-family: $font-stack;
+      background-color: transparent;
+      color: $delete-button-background;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      padding: $spacing;
+    }
+  }
+}
